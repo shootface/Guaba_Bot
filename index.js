@@ -6,9 +6,24 @@ const PREFIX = botconfig.prefix;
 //Commands
 const cinfo = require('./commands/info');
 const cmusic = require('./commands/music');
+const fs = require('fs');
+client.commands = new Discord.Collection();
+client.aliases = new Discord.Collection();
 
-
-var servers = {}
+fs.readdir('./commands/',(err,files) => {
+    if(err) console.log(err)
+    let jsfile = files.filter(f => f.split(".").pop() === "js")
+    if(jsfile.length <= 0){
+        return console.log("[LOGS] Can't load the file")
+    }
+    jsfile.forEach((f,i) => {
+        let pull = require(`./commands/${f}`);
+        client.commands.set(pull.config.name,pull)
+        pull.config.aliases.forEach(alias => {
+            client.alias.set(alias,pull.config.name)
+        });
+    });
+});
 
 client.on('ready',()=>{
     console.log(`Bot is ready as ${client.user.tag}!`);

@@ -2,26 +2,35 @@ const botconfig = require("../botconfig.json");
 const colors = require("../colors.json");
 const Discord = require('discord.js');
 
+module.exports.run = async (client, message, args) => {
+    let embed = new Discord.MessageEmbed()
+    .setColor(colors.blue)
+    .setTitle('UserInfo')
+    .setURL('https://discord.js.org/')
+    .setAuthor('guaba BOT', `${botconfig.guabaicon}`, 'https://discord.js.org')
+    //.setDescription('Some description here')
+    .setThumbnail(`${message.author.displayAvatarURL()}`)
+    .addFields(
+        {name: 'User:', value: `${message.author.username}`, inline: true },
+        //{ name: '\u200B', value: '\u200B' },
+        { name: 'Infractions', value: '0'},
+        { name: 'Join server at', value: `${message.guild.member(message.author).joinedAt}`, inline: true },
+        { name: 'User create at', value: `${message.author.createdAt}`, inline: true }
+    )
+    //.setImage(`${botconfig.guabaicon}`)
+    .setTimestamp()
+    .setFooter('',  `${botconfig.guabaicon}`);
+    message.channel.send(embed);
+}
+module.exports.config = {
+    name: "userInfo",
+    aliases: ["ui","Ui","uI"]
+}
+
+
 module.exports = {
     uinfo: function(cliente, message){
-        let embed = new Discord.MessageEmbed()
-            .setColor(colors.blue)
-            .setTitle('UserInfo')
-            .setURL('https://discord.js.org/')
-            .setAuthor('guaba BOT', `${botconfig.guabaicon}`, 'https://discord.js.org')
-            //.setDescription('Some description here')
-            .setThumbnail(`${message.author.displayAvatarURL()}`)
-            .addFields(
-                {name: 'User:', value: `${message.author.username}`, inline: true },
-                //{ name: '\u200B', value: '\u200B' },
-                { name: 'Infractions', value: '0'},
-                { name: 'Join server at', value: `${message.guild.member(message.author).joinedAt}`, inline: true },
-                { name: 'User create at', value: `${message.author.createdAt}`, inline: true }
-            )
-            //.setImage(`${botconfig.guabaicon}`)
-            .setTimestamp()
-            .setFooter('',  `${botconfig.guabaicon}`);
-            message.channel.send(embed);
+
     },
     sInfo: function(cliente, message){
         let embed1 = new Discord.MessageEmbed()
@@ -39,3 +48,4 @@ module.exports = {
         message.channel.send(embed1);
     }
 }
+
