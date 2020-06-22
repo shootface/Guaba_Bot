@@ -1,4 +1,4 @@
-const botconfig = require("../botconfig.json");
+const botconfig = require("./botconfig.json");
 //const colors = require("../colors.json");
 const Discord = require('discord.js');
 const { ErelaClient, Utils } = require('erela.js');

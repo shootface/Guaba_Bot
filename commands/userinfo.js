@@ -5,7 +5,7 @@ const Discord = require('discord.js');
 module.exports.run = async (client, message, args) => {
     let embed = new Discord.MessageEmbed()
     .setColor(colors.blue)
-    .setTitle('UserInfo')
+    .setTitle('User info')
     .setURL('https://discord.js.org/')
     .setAuthor('guaba BOT', `${botconfig.guabaicon}`, 'https://discord.js.org')
     //.setDescription('Some description here')
@@ -23,29 +23,8 @@ module.exports.run = async (client, message, args) => {
     message.channel.send(embed);
 }
 module.exports.config = {
-    name: "userInfo",
-    aliases: ["ui","Ui","uI"]
+    name: "userinfo",
+    aliases: ["ui","Ui","uI","userInfo"]
 }
 
-
-module.exports = {
-    uinfo: function(cliente, message){
-
-    },
-    sInfo: function(cliente, message){
-        let embed1 = new Discord.MessageEmbed()
-            .setColor(colors.blue)
-            .setTitle('UserInfo')
-            .setAuthor('guaba BOT', `${botconfig.guabaicon}`, 'https://discord.js.org')
-            //.setDescription('Some description here')
-            .setThumbnail(`${message.guild.iconURL()}`)
-            .addFields(
-                {name: 'Server name:', value: `${message.author.username}`, inline: true },
-                { name: 'Server Owner:', value: `${message.guild.owner}`, inline: true },
-                { name: 'Member count:', value: `${message.guild.memberCount}`, inline: true },
-                { name: 'Role aount:', value: `${message.guild.roles}`, inline: true }
-            )
-        message.channel.send(embed1);
-    }
-}
 
