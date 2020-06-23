@@ -1,0 +1,29 @@
+{
+  "name": "Guaba_Bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shootface/Guaba_Bot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shootface/Guaba_Bot/issues"
+  },
+  "homepage": "https://github.com/shootface/Guaba_Bot#readme",
+  "dependencies": {
+    "discord.js": "^12.2.0",
+    "erela.js": "^1.1.8",
+    "fs": "0.0.1-security",
+    "nodemon": "^2.0.4",
+    "opusscript": "0.0.7",
+    "ytdl-core": "^2.1.7"
+  }
+}
