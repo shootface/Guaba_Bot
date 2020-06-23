@@ -10,7 +10,7 @@ module.exports.run = async (client, message, args) => {
     //.setDescription('Some description here')
     .setThumbnail(`${message.guild.iconURL()}`)
     .addFields(
-        {name: 'Server name:', value: `${message.author.username}`, inline: true },
+        {name: 'Server name:', value: `${message.guild.name}`, inline: true },
         { name: 'Server Owner:', value: `${message.guild.owner}`, inline: true },
         { name: 'Member count:', value: `${message.guild.memberCount}`, inline: true },
         { name: 'Role aount:', value: `${message.guild.roles.cache.size}`, inline: true }
@@ -19,5 +19,8 @@ module.exports.run = async (client, message, args) => {
 }
 module.exports.config = {
     name: "serverinfo",
-    aliases: ["si","Si","sI","serverInfo"]
+    description: "Info of the discord server",
+    aliases: ["si","Si","sI","serverInfo"],
+    accessable: "Members",
+    usage: `${botconfig.prefix}serverinfo`
 }

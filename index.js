@@ -23,6 +23,7 @@ fs.readdir('./commands/',(err,files) => {
 });
 
 client.on('message',message => {
+    console.log(message.content);
     let args = message.content.substring(PREFIX.length).split(" ");
     let commandFile = client.commands.get(args[0]) || client.commands.get(client.aliases.get(args[0]));
     if(commandFile) commandFile.run(client,message,args)
