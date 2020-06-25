@@ -40,7 +40,7 @@ module.exports.run = async (client, message, args) => {
     });
 
     let embed = new Discord.MessageEmbed()
-    .setColor(colors.red)
+    .setColor(colors.yellow)
     .setAuthor('guaba BOT', `${botconfig.guabaicon}`, 'https://discord.js.org')
     .addFields(
         {name: "Moderation:", value: "Muted"},
@@ -56,5 +56,6 @@ module.exports.config = {
     name: "mute", 
     description: "Muted user from every textChannel",
     aliases: ["m","nonspeak"],
+    accessable: "Administrator",
     usage: `${botconfig.prefix}mute <@user>`
 }
