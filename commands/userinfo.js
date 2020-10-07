@@ -5,6 +5,7 @@ const util = require('../util/util.js');
 
 module.exports.run = async (client, message, args) => {
     let author = message.author;
+    console.log(args[1]);
     if(args[1]){
         author = util.getUserFromMention(client,args[1]);
     }

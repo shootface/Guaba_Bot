@@ -4,6 +4,9 @@ const Discord = require('discord.js');
 const client = new Discord.Client(); //Bot client
 const PREFIX = botconfig.prefix; 
 const fs = require('fs');
+const rest = require('./restindex');
+
+
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 require('./util/eventHandeler')(client)
@@ -21,16 +24,29 @@ fs.readdir('./commands/',(err,files) => {
         });
     });
 });
-
+let mess = null;
 client.on('message',message => {
+    mess = message;
     console.log(message.content);
     let args = message.content.substring(PREFIX.length).split(" ");
-    let commandFile = client.commands.get(args[0]) || client.commands.get(client.aliases.get(args[0]));
-    if(commandFile) commandFile.run(client,message,args)
+    command(args);
+    //let commandFile = client.commands.get(args[0]) || client.commands.get(client.aliases.get(args[0]));
+    //if(commandFile) commandFile.run(client,message,args)
 });
+
+function command(args){
+    let commandFile = client.commands.get(args[0]) || client.commands.get(client.aliases.get(args[0]));
+    if(commandFile) commandFile.run(client,mess,args)
+};
 
 //console.log(botconfig.token);
 client.login(botconfig.token);
 
+//
+rest.runServer();
 
+
+
+module.exports.command = command;
+module.exports.client = client;
 

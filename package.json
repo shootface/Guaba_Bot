@@ -21,7 +21,9 @@
   "dependencies": {
     "discord.js": "^12.2.0",
     "erela.js": "^1.1.8",
+    "express": "^4.17.1",
     "fs": "0.0.1-security",
+    "morgan": "^1.10.0",
     "nodemon": "^2.0.4",
     "opusscript": "0.0.7",
     "ytdl-core": "^2.1.7"
