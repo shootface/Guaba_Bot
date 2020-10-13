@@ -4,6 +4,7 @@ const appDiscord = require('../index');
 const router = Router();
 
 router.post('/say',(req,res) => {
+    console.log(req);
     const {
         user,
         company,
