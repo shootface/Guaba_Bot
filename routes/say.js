@@ -4,13 +4,13 @@ const appDiscord = require('../index');
 const router = Router();
 
 router.post('/say',(req,res) => {
-    console.log(req);
+    console.log(req.query);
     const {
         user,
         company,
         author,
         eventNum
-    } = req.body;
+    } = req.query;
     args = ["say",user,company,author,eventNum];
     console.log(args[1]);
     try {
