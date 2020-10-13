@@ -15,7 +15,7 @@ module.exports.run = async (client, message, args) => {
     .setURL('https://dev103289.service-now.com/')
     .setAuthor(args[3], `${botconfig.guabaicon}`)
     .setDescription('Has been invited to')
-    .setThumbnail(`${author.displayAvatarURL()}`)
+    //.setThumbnail(`${author.displayAvatarURL()}`)
     .addFields(
         {name: 'User:', value: `${author.username}`, inline: true },
         //{ name: '\u200B', value: '\u200B' },
